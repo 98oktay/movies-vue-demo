@@ -1,24 +1,27 @@
-# apsiyon-case
+# Apsiyon Movies
+It is a sample Vue JS project that displays the list of best movies and series from past to present.
 
 ## Project setup
 ```
-npm install
+yarn install
 ```
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+yarn serve
+```
+
+### Start JSON server
+JSON server is simulate movie list service on local (from db.json)
+
+```
+yarn api
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn build
 ```
 
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+#### Technology, library and tools used
+Vuejs, vuex, router, material ui, scss, custom theme, axios.
