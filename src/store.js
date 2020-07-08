@@ -4,11 +4,15 @@ import VuexPersistence from 'vuex-persist'
 
 const state = {
     theme: 'default',
-    typeFilter: null,
-    orderBy: "desc",
-    page: 1,
-    pageLimit: 5,
-    pageTotal: 0,
+    filter: {
+        typeFilter: null,
+        orderBy: "desc",
+    },
+    pagination: {
+        page: 1,
+        pageLimit: 5,
+        pageTotal: 0,
+    },
     user: {}
 };
 

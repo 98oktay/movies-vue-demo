@@ -2,8 +2,8 @@
 
     <paginate
             :md-theme="this.$store.state.theme"
-            :value="this.$store.state.page"
-            :page-count="this.$store.state.pageTotal / this.$store.state.pageLimit"
+            :value="this.$store.state.pagination.page"
+            :page-count="pageCount"
             :click-handler="changePage"
             :prev-text="'keyboard_arrow_left'"
             :prev-link-class="'md-icon md-icon-font'"
@@ -22,7 +22,15 @@
         name: "ListPagination",
         methods: {
             changePage(page) {
-                this.$store.commit("set", ["page", page])
+                this.$store.commit("set", ["pagination", {
+                    ...this.$store.state.pagination,
+                    page
+                }]);
+            }
+        },
+        computed: {
+            pageCount() {
+                return -Math.floor(-this.$store.state.pagination.pageTotal / this.$store.state.pagination.pageLimit)
             }
         }
     }
@@ -55,22 +63,23 @@
                 border-color: var(--md-theme-default-primary);
                 background: var(--md-theme-default-primary);
             }
-        }
 
-        a:first-child {
-            border-top-left-radius: 4px;
-            border-bottom-left-radius: 4px;
-        }
+            &:first-child {
+                border-top-left-radius: 4px;
+                border-bottom-left-radius: 4px;
+            }
 
-        a:last-child {
-            border-top-right-radius: 4px;
-            border-bottom-right-radius: 4px;
+            &:last-child {
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+            }
         }
 
         &[md-theme=gray] a.active {
             border-color: var(--md-theme-gray-primary);
             background: var(--md-theme-gray-primary);
         }
+
         &[md-theme=blue] a.active {
             border-color: var(--md-theme-blue-primary);
             background: var(--md-theme-blue-primary);

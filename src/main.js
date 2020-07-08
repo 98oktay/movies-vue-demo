@@ -1,8 +1,8 @@
 import Vue from 'vue'
-import App from './App.vue'
+import App from '@/App.vue'
 import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.min.css'
-import store from './store'
+import store from '@/store'
 import Paginate from 'vuejs-paginate'
 import router from "@/router";
 

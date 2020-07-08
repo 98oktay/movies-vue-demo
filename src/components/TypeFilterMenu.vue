@@ -24,16 +24,15 @@
         computed: {
             typeFilter: {
                 get () {
-                    return this.$store.state.typeFilter
+                    return this.$store.state.filter.typeFilter
                 },
-                set (value) {
-                    this.$store.commit('set',['typeFilter',value])
+                set (typeFilter) {
+                    this.$store.commit('set', ['filter', {
+                        ...this.$store.state.filter,
+                        typeFilter
+                    }])
                 }
             }
         }
     }
 </script>
-
-<style scoped>
-
-</style>

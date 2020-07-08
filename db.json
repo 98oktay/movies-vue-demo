@@ -12,7 +12,7 @@
       "title": "Baba",
       "type": "movie",
       "year": 1972,
-      "score": 1.9
+      "score": 4.5
     },
     {
       "id": 3,
@@ -54,7 +54,7 @@
       "title": "House of Cards",
       "type": "series",
       "year": 2013,
-      "score": 5
+      "score": 5.1
     },
     {
       "id": 8,
@@ -75,7 +75,7 @@
       "title": "Westworld",
       "type": "series",
       "year": 2016,
-      "score": 1.6
+      "score": 5.1
     },
     {
       "id": 11,
@@ -86,17 +86,17 @@
     },
     {
       "title": "bbbbb",
-      "score": 5,
+      "score": 3.6,
       "year": "2000",
       "type": "series",
       "id": 15
     },
     {
-      "title": "ddd",
-      "score": 1.9,
-      "year": 1000,
-      "type": "series",
-      "id": 17
+      "title": "aaa1111",
+      "score": 10,
+      "year": 1800,
+      "type": "movie",
+      "id": 19
     }
   ],
   "profile": {

@@ -1,5 +1,5 @@
+@import "../../node_modules/vue-material/dist/theme/engine";
 
-@import "~vue-material/dist/theme/engine";
 @include md-register-theme("default", (
         primary: #C39A6B,
         text-primary-on-primary: #ffffff,
@@ -7,7 +7,6 @@
         whiteText: #fff,
         theme: light,
 ));
-
 @include md-register-theme("gray", (
         primary: #C5C5C5,
         text-primary-on-primary: #ffffff,
@@ -22,7 +21,6 @@
         whiteText: #fff,
         theme: light
 ));
-
 @include md-register-theme("black", (
         primary: #000000,
         text-primary-on-primary: #ffffff,
@@ -30,18 +28,4 @@
         whiteText: #fff,
         theme: dark
 ));
-@import "~vue-material/dist/theme/all";
-
-body {
-  display: flex;
-  flex-direction: column;
-}
-
-#app {
-  flex:1;
-  min-height: 100%;
-
-  .md-toolbar {
-    border-bottom: 1px solid #00000044;
-  }
-}
+@import "../../node_modules/vue-material/dist/theme/all";

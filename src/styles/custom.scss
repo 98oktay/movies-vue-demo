@@ -1,0 +1,25 @@
+@import "themes";
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#app {
+  flex:1;
+  min-height: 100%;
+
+  .md-layout.md-centered {
+    max-width: 960px;
+  }
+  .md-toolbar {
+    border-bottom: 1px solid #00000044;
+  }
+  .md-button {
+    .md-icon {
+      height: 12px;
+      width: 12px;
+      min-width: 12px;
+    }
+  }
+}

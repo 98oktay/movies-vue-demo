@@ -1,9 +1,5 @@
 <template>
-
-    <div style="width: 100%">
-        <md-table style="width: 100%">
-
-
+    <div class="wrapper">
             <md-list>
                 <md-list-item v-for="item in items" v-bind:key="item.id" class="movie-item">
                     {{item.title}} ({{item.year}})
@@ -18,7 +14,6 @@
 
             </md-list>
 
-        </md-table>
         <md-dialog :md-active.sync="showDeleteDialog">
             <md-dialog-content class="md-direction-column md-size-medium">
                 <md-icon class="dialog-icon md-size-5x">delete_forever</md-icon>
@@ -55,17 +50,17 @@
         computed: {
             typeFilter: {
                 get() {
-                    return this.$store.state.typeFilter
+                    return this.$store.state.filter.typeFilter
                 }
             },
             orderBy: {
                 get() {
-                    return this.$store.state.orderBy
+                    return this.$store.state.filter.orderBy
                 }
             },
             page: {
                 get() {
-                    return this.$store.state.page
+                    return this.$store.state.pagination.page
                 }
             }
         },
@@ -86,15 +81,18 @@
                 const filters = {
                     _sort: "score",
                     _order: this.orderBy,
-                    _limit: this.$store.state.pageLimit,
-                    _page: this.$store.state.page
+                    _limit: this.$store.state.pagination.pageLimit,
+                    _page: this.$store.state.pagination.page
                 };
                 if (this.typeFilter && this.typeFilter !== "all") {
                     filters.type = this.typeFilter
                 }
                 DataService.get("movies", filters).then(({data, headers}) => {
                     this.items = data;
-                    this.$store.commit("set", ["pageTotal", parseInt(headers['x-total-count'], 10)])
+                    this.$store.commit("set", ["pagination", {
+                        ...this.$store.state.pagination,
+                        pageTotal: parseInt(headers['x-total-count'], 10)
+                    }])
                 })
             }
         },
@@ -104,7 +102,10 @@
         watch: {
             typeFilter() {
                 if (this.page > 1) {
-                    this.$store.commit("set", ["page", 1]);
+                    this.$store.commit("set", ["pagination", {
+                        ...this.$store.state.pagination,
+                        page: 1
+                    }])
                 } else {
                     this.loadMovies()
                 }
@@ -120,6 +121,9 @@
 </script>
 
 <style lang="scss" scoped>
+    .wrapper {
+        flex: 1;
+    }
     .dialog-icon {
         margin: 20px auto 0;
         font-size: 40px;
@@ -138,6 +142,7 @@
     .md-text-centered {
         text-align: center;
     }
+
     .movie-star {
         margin-right: 100px;
         font-size: 24px;

@@ -1,6 +1,7 @@
 <template>
     <md-menu md-size="medium" md-align-trigger :mdCloseOnSelect="false">
-        <md-button md-menu-trigger class="md-primary md-raised">Sort By
+        <md-button md-menu-trigger class="md-primary md-raised">
+            Sort
             <md-icon>keyboard_arrow_down</md-icon>
         </md-button>
         <md-menu-content>
@@ -20,16 +21,15 @@
         computed: {
             orderBy: {
                 get() {
-                    return this.$store.state.orderBy
+                    return this.$store.state.filter.orderBy
                 },
-                set(value) {
-                    this.$store.commit('set', ['orderBy', value])
+                set(orderBy) {
+                    this.$store.commit('set', ['filter', {
+                        ...this.$store.state.filter,
+                        orderBy
+                    }])
                 }
             }
         }
     }
 </script>
-
-<style scoped>
-
-</style>

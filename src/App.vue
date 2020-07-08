@@ -15,7 +15,7 @@
 </template>
 
 <script>
-    import './custom.scss'
+    import './styles/custom.scss'
     import ToolBar from "@/components/ToolBar";
     import ThemeSwitcher from "@/components/ThemeSwitcher";
 
